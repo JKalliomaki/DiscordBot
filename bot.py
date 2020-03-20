@@ -74,17 +74,20 @@ async def rukatj(ctx):
 # WIP music player
 @client.command()
 async def play(ctx, url):
-    try:
-        server = ctx.message.server
-        voice_client = client.voice_client_in(server)
 
-        player = await voice_client.create_ytdl_player(url)
-        players[server.id] = player
-        player.start()
+    guild = ctx.message.guild
+    voice_channel = client.voiceState.channel
 
-    except AttributeError:
-        #default_text_channel.send('Uno problemo i biisi')
-        return
+    player = await voice_channel.create_ytdl_player(url)
+    players[guild.id] = player
+    player.start()
+
+
+
+
+# @client.command()
+# async def skip(ctx):
+
 
 
 # COVID cases in Finland
