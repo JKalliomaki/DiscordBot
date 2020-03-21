@@ -55,7 +55,7 @@ async def connect(ctx):
 # Bot leaves voice
 @client.command()
 async def leave(ctx):
-    await ctx.voice_client.disconnect()
+    await client.voice_client_in.disconnect()
 
 
 # RukaTJ counter
@@ -76,7 +76,7 @@ async def rukatj(ctx):
 async def play(ctx, url):
 
     guild = ctx.message.guild
-    voice_channel = client.voiceState.channel
+    voice_channel = ctx.voice_client
 
     player = await voice_channel.create_ytdl_player(url)
     players[guild.id] = player
