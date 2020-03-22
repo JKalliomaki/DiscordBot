@@ -113,4 +113,4 @@ async def on_member_update(before, after):
 
 
 
-client.run('NjkwNTQyOTU4Nzg0ODA2OTUz.Xnd54w.Dopz1T-8ozjQ-eXnF2Smc_VR6ho')
+client.run("token")
