@@ -93,9 +93,12 @@ async def play(ctx, url):
 # COVID cases in Finland
 @client.command()
 async def korona(ctx):
+    n1 = '\n'
     korona_json = requests.get(korona_url).json()
     korona_amount = len(korona_json["confirmed"])
-    await ctx.send(f'Tapaukset Suomessa: {korona_amount}')
+    korona_deads = len(korona_json["deaths"])
+    korona_cured = len(korona_json["recovered"])
+    await ctx.send(f'Tapaukset: {korona_amount}{n1}Kuolleet: {korona_deads}{n1}Parantuneet: {korona_cured}')
 
 
 # Eeron tunnistin
